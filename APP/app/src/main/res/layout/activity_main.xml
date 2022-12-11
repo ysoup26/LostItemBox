@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="5dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/listUserLogsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사용자"
+            />
+        <Button
+            android:id="@+id/listLogsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="관리자"
+            />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider" />
+
+
+</LinearLayout>
