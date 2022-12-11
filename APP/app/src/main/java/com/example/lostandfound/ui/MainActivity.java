@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Toast.makeText(MainActivity.this, "사물로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-                Intent intent = new Intent(MainActivity.this, LogActivity.class);
+                Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
                 //intent.putExtra("https://r9eh795567.execute-api.ap-northeast-2.amazonaws.com/lostItems", getLogsURL);
                 //Log.i(TAG,getLogsURL);
                 startActivity(intent);
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Toast.makeText(MainActivity.this, "사물로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-                Intent intent = new Intent(MainActivity.this, LogActivity.class);
+                Intent intent = new Intent(MainActivity.this,GalleryActivity.class);
                 //intent.putExtra("https://r9eh795567.execute-api.ap-northeast-2.amazonaws.com/lostItems", getLogsURL);
                 //Log.i(TAG,getLogsURL);
                 startActivity(intent);

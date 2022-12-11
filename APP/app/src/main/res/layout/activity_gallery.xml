@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="분실물 목록 조회"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <Button
+        android:id="@+id/log_start_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="조회 시작" />
+    <ListView
+        android:id="@+id/logList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff99ccee"
+        android:textColor="#ff0000ff"
+        android:textSize="12dp"></ListView>
+    <TextView
+        android:id="@+id/message2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>
