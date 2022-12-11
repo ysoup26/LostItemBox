@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+    tasks.register("prepareKotlinBuildScriptModel"){}
     compileSdk 32
 
     defaultConfig {

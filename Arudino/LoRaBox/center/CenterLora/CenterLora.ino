@@ -4,15 +4,16 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h> // version 2.7.0
 #include <time.h>
+#include "Arduino.h"
 #include <ArduinoJson.h>
 #include "credentials.h"
 
 //[waring]wemos는 우노보드와 핀번호가 다름
 #define TXpin 13
 #define RXpin 15
-#define LED 2
-#define BTNOPEN 8
-#define BTNCLOSE 9
+#define LED 16
+#define BTNOPEN 4
+#define BTNCLOSE 5
 
 SoftwareSerial DebugSerial(RXpin,TXpin);
 SNIPE SNIPE(Serial);
@@ -122,8 +123,6 @@ void setup() {
   Serial.begin(115200);
   DebugSerial.begin(115200); //테라텀(로라)
   pinMode(LED, OUTPUT); 
-  pinMode(BTNOPEN, INPUT);
-  pinMode(BTNCLOSE, INPUT);
   Serial.setDebugOutput(true);
   Serial.println();
   
@@ -170,7 +169,7 @@ void setup() {
   if (!SNIPE.lora_setAppKey(lora_app_key)) DebugSerial.println("SNIPE LoRa app key value has not been changed");
   if (!SNIPE.lora_setFreq(LORA_CH_1))DebugSerial.println("SNIPE LoRa Frequency value has not been changed");
   if (!SNIPE.lora_setSf(LORA_SF_7)) DebugSerial.println("SNIPE LoRa Sf value has not been changed");
-  if (!SNIPE.lora_setRxtout(5000)) DebugSerial.println("SNIPE LoRa Rx Timout value has not been changed");
+  if (!SNIPE.lora_setRxtout(1000)) DebugSerial.println("SNIPE LoRa Rx Timout value has not been changed");
   DebugSerial.println("SNIPE Center Wemos LoRa start!");
   
 }
@@ -181,7 +180,7 @@ void loop() {
   if(flag==1)//분실물 습득 신호를 받음
   {
     v = SNIPE.lora_recv();//"#B L:1,R:1";////
-    delay(300); 
+    delay(100); 
     //분실물 습득 신호 값이 맞을 때, AWS에 올리기
     Serial.println(v);
     Serial.println(v.indexOf("#B"));
@@ -194,7 +193,7 @@ void loop() {
         }
         client.loop();
         long now = millis();
-        if (now - lastMsg > 5000) { 
+        if (now - lastMsg > 1000) { 
           lastMsg = now;
           ++value;  //인덱스
           //받은 코드를 분해하는 부분
@@ -228,12 +227,13 @@ void loop() {
           if (ver == "#C ACK") //카메라로 부터 ACK 받음
           {
             DebugSerial.println("#C ACK success");
-            flag=1;      
+            flag=1;
+            s_sendData="";      
           }
           else
           {
             DebugSerial.println("#C ACK fail");
-            delay(500);
+            delay(100);
           }
         }
   }

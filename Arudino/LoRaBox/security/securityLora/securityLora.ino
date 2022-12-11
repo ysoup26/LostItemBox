@@ -5,6 +5,7 @@
 #include <Servo.h>
 #include <LiquidCrystal_I2C.h>
 
+//usb ttl의 rx는 tx핀, tx는 rx핀
 #define TXpin 11
 #define RXpin 10
 
@@ -62,7 +63,7 @@ void loop() {
 //    //닫힘
 //    ServoR.write(0);
 //    ServoL.write(90);
-//    delay(500);
+//    delay(300);
 //    ServoR.write(90);
 //    ServoL.write(0);
 //    
@@ -84,11 +85,12 @@ void loop() {
     switch(do_task)
     {
       case 1: //잠금장치 ON
-        ServoR.write(0);
-        ServoL.write(90);
+        ServoR.write(90);
+        ServoL.write(0);
         lcd.clear();
         lcd.setCursor(0,0); 
         lcd.print("BOX OPEN");
+        delay(100);
 
         break;
       case 2://잠금장치 OFF
@@ -97,11 +99,12 @@ void loop() {
         lcd.clear();
         lcd.setCursor(0,0); 
         lcd.print("BOX CLOSE");
-
+        delay(100);
         break;
     }
     //다 수행하고 중앙에게 ack 보냄
     if(SNIPE.lora_send("#C ACK")){ 
+        DebugSerial.println("#C ACK success");//신호받으면
         Serial.println("#C ACK success");//신호받으면
         flag=1;
     }
