@@ -10,11 +10,12 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.lostandfound.R;
+import com.example.lostandfound.ui.apicall.GetDBItem;
 import com.example.lostandfound.ui.apicall.GetDBItems;
 
 public class GalleryActivity extends AppCompatActivity {
     String getLogsURL;
-
+    String name;
     //    private TextView textView_Date1;
 //    private TextView textView_Date2;
     final static String TAG = "AndroidAPITest";
@@ -23,7 +24,9 @@ public class GalleryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-        //Intent intent = getIntent();
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
+        Log.i("n", "name="+name);
         getLogsURL ="https://r9eh795567.execute-api.ap-northeast-2.amazonaws.com/lostItems" ;
         //intent.getStringExtra("getLogsURL");
         Log.i(TAG, "getLogsURL="+getLogsURL);
@@ -117,7 +120,7 @@ public class GalleryActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new GetDBItems(GalleryActivity.this,getLogsURL).execute();
+                new GetDBItem(GalleryActivity.this,getLogsURL,name).execute();
             }
         });
     }

@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 //                    return;
 //                }
                 Intent intent = new Intent(MainActivity.this, GalleryActivity.class);
+                intent.putExtra("name","admin");
                 //intent.putExtra("https://r9eh795567.execute-api.ap-northeast-2.amazonaws.com/lostItems", getLogsURL);
                 //Log.i(TAG,getLogsURL);
                 startActivity(intent);
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 //                    return;
 //                }
                 Intent intent = new Intent(MainActivity.this,GalleryActivity.class);
+                intent.putExtra("name","user");
                 //intent.putExtra("https://r9eh795567.execute-api.ap-northeast-2.amazonaws.com/lostItems", getLogsURL);
                 //Log.i(TAG,getLogsURL);
                 startActivity(intent);

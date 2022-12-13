@@ -26,9 +26,11 @@ import java.util.ArrayList;
 public class GetDBItem extends GetRequest {
     final static String TAG = "AndroidAPITest";
     String urlStr;
-    public GetDBItem(Activity activity, String urlStr) {
+    String name;
+    public GetDBItem(Activity activity, String urlStr,String name) {
         super(activity);
         this.urlStr = urlStr;
+        this.name = name;
     }
 
     @Override
@@ -84,6 +86,9 @@ public class GetDBItem extends GetRequest {
 
                 Intent intent = new Intent(activity, GalleryDetailActivity.class);
                 //Intent intent = new Intent(activity, DeviceActivity.class );  // 0
+                Log.i("GetDB","GetDBname="+name);  // GetDBname=admin
+                intent.putExtra("name",name); // 관리자 , 사용자 전달
+
                 // 시간, L CM , R CM 전달
                 intent.putExtra("time", thing.timestamp);  // 시간전달
                 intent.putExtra("Rcm",thing.right);  // 오른쪽 cm

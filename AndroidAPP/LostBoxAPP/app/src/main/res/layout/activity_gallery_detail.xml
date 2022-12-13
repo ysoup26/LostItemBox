@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="30dp">
 
     <Button
         android:layout_width="wrap_content"
@@ -18,69 +19,109 @@
         android:layout_height="286dp"
         android:layout_gravity="center_vertical"
         android:padding="8dp"
-        android:scaleType="centerInside" />
+        android:scaleType="centerInside"
+        android:background="@color/purple_500"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1"
-        >
+        android:background="@color/purple_500">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="분실물 찾음 :      "  />
+            android:text="분실물 찾음 :      "
+            android:textColor="@color/cardview_light_background"/>
+
         <EditText
+            android:id="@+id/editCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint=" Check "
-            android:id="@+id/editCheck"  />
+            android:visibility="gone"
+            android:textColor="@color/cardview_light_background"/>
+
+        <TextView
+            android:id="@+id/textCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=" Check text "
+            android:visibility="visible"
+            android:textColor="@color/cardview_light_background"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1"        >
+        android:background="@color/purple_500">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="들어온 시간 :        " />
+            android:text="들어온 시간 :        "
+            android:textColor="@color/cardview_light_background" />
 
         <TextView
             android:id="@+id/textTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint=" Time " />
+            android:hint=" Time "
+            android:textColor="@color/cardview_light_background"/>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="12dp"
+        android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_weight="1"    >
+        android:background="@color/purple_500">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="물건의 크기 L :         " />
-
+            android:text="물건의 크기 L :    "
+            android:textColor="@color/cardview_light_background"/>
         <TextView
             android:id="@+id/textLCm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint=" Cm " />
+            android:hint=" Cm "
+            android:textColor="@color/cardview_light_background"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="              물건의 크기 R :         " />
+            android:text="Cm "
+            android:textColor="@color/cardview_light_background"/>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="              물건의 크기 R :   "
+            android:textColor="@color/cardview_light_background"/>
         <TextView
             android:id="@+id/textRCm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint=" Cm " />
+            android:hint=" Cm "
+            android:textColor="@color/cardview_light_background"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cm "
+            android:textColor="@color/cardview_light_background"/>
     </LinearLayout>
 
 
